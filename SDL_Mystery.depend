@@ -1,0 +1,51 @@
+# depslib dependency file v1.0
+1337307808 source:c:\users\carol\desktop\sdl_mystery\main.cpp
+	<iostream>
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<windows.h>
+	"load.h"
+	"String_SDL.h"
+	"points.h"
+	<sstream>
+
+1337306748 c:\users\carol\desktop\sdl_mystery\load.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337306748 source:c:\users\carol\desktop\sdl_mystery\load.cpp
+	"load.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<string>
+
+1337288893 c:\users\carol\desktop\sdl_mystery\string_sdl.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<string>
+
+1337289018 source:c:\users\carol\desktop\sdl_mystery\string_sdl.cpp
+	"String_SDL.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<string>
+	"load.h"
+
+1337304874 c:\users\carol\desktop\sdl_mystery\points.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<string>
+	<sstream>
+
+1337304874 source:c:\users\carol\desktop\sdl_mystery\points.cpp
+	"points.h"
+	"load.h"
+	<string>
+	<sstream>
+

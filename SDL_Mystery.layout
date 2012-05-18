@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_layout_file>
+	<ActiveTarget name="Debug" />
+	<File name="String_SDL.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="792" topLine="31" />
+	</File>
+	<File name="String_SDL.h" open="0" top="0" tabpos="0">
+		<Cursor position="369" topLine="9" />
+	</File>
+	<File name="load.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="2042" topLine="75" />
+	</File>
+	<File name="load.h" open="0" top="0" tabpos="3">
+		<Cursor position="585" topLine="5" />
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="1804" topLine="76" />
+	</File>
+	<File name="points.cpp" open="1" top="1" tabpos="2">
+		<Cursor position="2242" topLine="56" />
+	</File>
+	<File name="points.h" open="0" top="0" tabpos="0">
+		<Cursor position="646" topLine="27" />
+	</File>
+</CodeBlocks_layout_file>
