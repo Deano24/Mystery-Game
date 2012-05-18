@@ -292,6 +292,7 @@ void office()
     name_message = TTF_RenderText_Solid(sketch_2,"THIS IS YOUR OFFICE",textColors);
     apply_surface(140,200,name_message,screen);
     SDL_Flip(screen);
+    // kenrick was here
     SDL_FreeSurface(welcome_message);
     welcome_message = TTF_RenderText_Solid(sketch,"CASE",textColor);
     apply_surface (200,260,welcome_message,screen);
