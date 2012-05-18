@@ -82,12 +82,23 @@ bool load::load_files()
     points = load_image("points.jpg");
     office_b = SDL_LoadBMP("Office button.bmp");
     office_back = load_image("detective_office.jpg");
+    globe = load_image("globe.jpg");
+    file = load_image ("case_folder.jpg");
+    exit_pic = load_image("exit.jpg");
+    city_street = load_image("city_map.jpg");
+    star = load_image("small_star.jpg");
+    v_kitchen = load_image("victim_kitchen.jpg");
+    v_bedroom = load_image ("victim_bedroom.jpg");
+    v_living = load_image ("victim_living room.jpg");
+    v_entrance = load_image("victim_entrance.jpg");
+
 
     //Open the font
     font = TTF_OpenFont( "lazy.ttf", 28 );
     sketch = TTF_OpenFont("!sketchytimes-b.ttf",24);
     sketch_2 = TTF_OpenFont("!sketchytimes-b.ttf",48);
     juice_b = TTF_OpenFont("juice bold.ttf",18);
+    comic = TTF_OpenFont("sf comic script.ttf",18);
 
     //If there was a problem in loading the background
     if( background == NULL )

@@ -108,5 +108,43 @@ void point::show_intuition()
 {
     apply_surface_cal(280,380,interrogation,screen);
     apply_surface_cal(280,340,break_ent,screen);
+}
 
+void point::show_images()
+{
+    SDL_FreeSurface(welcome_message);
+    welcome_message = TTF_RenderText_Solid(sketch_2,"This is the point allocation page",textColor);
+    apply_surface_cal(80,2,welcome_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"You are being awarded 15 points please allocate them.",textColor_r);
+    apply_surface_cal(10,50,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"You have 3 ares: Breaking and Entering, Interrogation and",textColor_r);
+    apply_surface_cal(10,100,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Intuition. Go to your office once you are finished.",textColor_r);
+    apply_surface_cal(50,120,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Breaking and Entering: The higher the skill level the better the",textColor_r);
+    apply_surface_cal(10,160,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"chance of success for breaking into someones residence.",textColor_r);
+    apply_surface_cal(50,180,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Interrogation: The higher the skill the more questions you can",textColor_r);
+    apply_surface_cal(10,220,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"ask a suspect/individual.",textColor_r);
+    apply_surface_cal(50,240,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Intution: The higher the skill the more chance you will have to",textColor_r);
+    apply_surface_cal(10,280,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"sense if something is not right.",textColor_r);
+    apply_surface_cal(50,300,name_message,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Breaking and Entering",textColor_r);
+    apply_surface_cal(10,340,name_message,screen);
+    apply_surface_cal(300,340,pluss,screen);
+    apply_surface_cal(330,340,minuss,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Interrogation",textColor_r);
+    apply_surface_cal(10,380,name_message,screen);
+    apply_surface_cal(300,380,pluss,screen);
+    apply_surface_cal(330,380,minuss,screen);
+    name_message = TTF_RenderText_Solid(juice_b,"Intuition",textColor_r);
+    apply_surface_cal(10,420,name_message,screen);
+    apply_surface_cal(300,420,pluss,screen);
+    apply_surface_cal(330,420,minuss,screen);
+    apply_surface_cal(420,420,office_b,screen);
+    SDL_Flip(screen);
 }

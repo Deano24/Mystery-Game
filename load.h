@@ -27,6 +27,15 @@ extern SDL_Surface *pluss;
 extern SDL_Surface *minuss;
 extern SDL_Surface *office_b;
 extern SDL_Surface *office_back;
+extern SDL_Surface *globe;
+extern SDL_Surface *file;
+extern SDL_Surface *exit_pic;
+extern SDL_Surface *city_street;
+extern SDL_Surface *star;
+extern SDL_Surface *v_bedroom;
+extern SDL_Surface *v_living;
+extern SDL_Surface *v_entrance;
+extern SDL_Surface *v_kitchen;
 
 
 //The event structure
@@ -38,6 +47,7 @@ extern TTF_Font *font;
 extern TTF_Font *sketch;
 extern TTF_Font *sketch_2;
 extern TTF_Font *juice_b;
+extern TTF_Font *comic;
 
 //The color of the font
 extern SDL_Color textColor;

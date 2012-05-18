@@ -1,21 +1,25 @@
 # depslib dependency file v1.0
-1337307808 source:c:\users\carol\desktop\sdl_mystery\main.cpp
+1337377183 source:c:\users\carol\desktop\sdl_mystery\main.cpp
 	<iostream>
+	<sstream>
+	<windows.h>
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
-	<windows.h>
 	"load.h"
 	"String_SDL.h"
 	"points.h"
-	<sstream>
+	"Office_Class.h"
+	"apply_surface.h"
+	"deceased_stuff.h"
+	"Victim_house.h"
 
-1337306748 c:\users\carol\desktop\sdl_mystery\load.h
+1337376326 c:\users\carol\desktop\sdl_mystery\load.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
 
-1337306748 source:c:\users\carol\desktop\sdl_mystery\load.cpp
+1337376339 source:c:\users\carol\desktop\sdl_mystery\load.cpp
 	"load.h"
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
@@ -36,16 +40,65 @@
 	<string>
 	"load.h"
 
-1337304874 c:\users\carol\desktop\sdl_mystery\points.h
+1337368096 c:\users\carol\desktop\sdl_mystery\points.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
 	<string>
 	<sstream>
 
-1337304874 source:c:\users\carol\desktop\sdl_mystery\points.cpp
+1337368302 source:c:\users\carol\desktop\sdl_mystery\points.cpp
 	"points.h"
 	"load.h"
 	<string>
 	<sstream>
+
+1337368785 source:c:\users\carol\desktop\sdl_mystery\office_class.cpp
+	"Office_Class.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	"load.h"
+	"deceased_stuff.h"
+
+1337368785 c:\users\carol\desktop\sdl_mystery\office_class.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337370828 source:c:\users\carol\desktop\sdl_mystery\apply_surface.cpp
+	"apply_surface.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337370811 c:\users\carol\desktop\sdl_mystery\apply_surface.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337371527 source:c:\users\carol\desktop\sdl_mystery\deceased_stuff.cpp
+	"deceased_stuff.h"
+	"apply_surface.h"
+	"load.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337368798 c:\users\carol\desktop\sdl_mystery\deceased_stuff.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337377290 c:\users\carol\desktop\sdl_mystery\victim_house.h
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+
+1337377343 source:c:\users\carol\desktop\sdl_mystery\victim_house.cpp
+	"Victim_house.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	"load.h"
 

@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Office_Class.cpp" />
+		<Unit filename="Office_Class.h" />
 		<Unit filename="String_SDL.cpp" />
 		<Unit filename="String_SDL.h" />
 		<Unit filename="load.cpp" />

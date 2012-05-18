@@ -32,6 +32,7 @@ class point
         void show_bande();
         void show_interrogation();
         void show_intuition();
+        void show_images();
 };
 
 typedef struct

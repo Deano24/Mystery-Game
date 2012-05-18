@@ -7,17 +7,17 @@
 	<File name="String_SDL.h" open="0" top="0" tabpos="0">
 		<Cursor position="369" topLine="9" />
 	</File>
-	<File name="load.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="2042" topLine="75" />
+	<File name="load.cpp" open="1" top="0" tabpos="4">
+		<Cursor position="2202" topLine="26" />
 	</File>
-	<File name="load.h" open="0" top="0" tabpos="3">
-		<Cursor position="585" topLine="5" />
+	<File name="load.h" open="1" top="0" tabpos="5">
+		<Cursor position="672" topLine="23" />
 	</File>
-	<File name="main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="1804" topLine="76" />
+	<File name="main.cpp" open="1" top="1" tabpos="1">
+		<Cursor position="16009" topLine="121" />
 	</File>
-	<File name="points.cpp" open="1" top="1" tabpos="2">
-		<Cursor position="2242" topLine="56" />
+	<File name="points.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="784" topLine="1" />
 	</File>
 	<File name="points.h" open="0" top="0" tabpos="0">
 		<Cursor position="646" topLine="27" />
