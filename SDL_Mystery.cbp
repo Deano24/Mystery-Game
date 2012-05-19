@@ -36,6 +36,10 @@
 		<Unit filename="Office_Class.h" />
 		<Unit filename="String_SDL.cpp" />
 		<Unit filename="String_SDL.h" />
+		<Unit filename="Victim_house.cpp" />
+		<Unit filename="Victim_house.h" />
+		<Unit filename="deceased_stuff.cpp" />
+		<Unit filename="deceased_stuff.h" />
 		<Unit filename="load.cpp" />
 		<Unit filename="load.h" />
 		<Unit filename="main.cpp" />

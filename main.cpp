@@ -15,18 +15,29 @@
 #include "Victim_house.h"
 
 
+
+
 using namespace std;
 
+//START OFF
 void office(void);
 void welcome_screen(void);
-void deceased(void);
 void point_allocation(void);
-void map_home(void);
-void Victims_house(void);
+
+//MAP
+bool map_home(void);
+
+//THE DECASED MYSTERY INFORMATION
+bool deceased(void);
+
+//SALON FOR DECEASED MYSTERY
 void Salon(void);
-void Victims_kitchen(void);
-void Victims_living(void);
-void Victims_bedroom(void);
+
+//ALL ASPECTS OF VICTIMS HOUSE
+bool Victims_house(void);
+bool Victims_kitchen(void);
+bool Victims_living(void);
+bool Victims_bedroom(void);
 
 
 SDL_Surface *background = NULL;
@@ -243,7 +254,7 @@ void point_allocation()
     }
 }
 
-void deceased()
+bool deceased()
 {
     bool quit = false;
     int x = 0, y = 0;
@@ -288,10 +299,10 @@ void deceased()
             }
         }
     }
-
+    return quit;
 }
 
-void map_home()
+bool map_home()
 {
     bool quit = false;
     int x = 0, y = 0;
@@ -318,11 +329,11 @@ void map_home()
 
                         if((x>25)&&(x<25+20)&&(y>20)&&(y<20+18))
                            {
-                               Victims_house();
+                               quit = Victims_house();
                            }
                         if((x>75)&&(x<75+20)&&(y>80)&&(y<80+18))
                            {
-                               Salon();
+                                Salon();
                            }
 
                         if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
@@ -335,10 +346,10 @@ void map_home()
             }
         }
     }
-
+    return quit;
 }
 
-void Victims_kitchen()
+bool Victims_kitchen()
 {
     bool exit = false;
     int x = 0, y = 0;
@@ -370,16 +381,17 @@ void Victims_kitchen()
 
                         if((x>300)&&(x<300+70)&&(y>0)&&(y<0+30))
                             {
-                                Victims_bedroom();
+                                exit = Victims_bedroom();
                             }
 
                     }
             }
         }
     }
+    return exit;
 }
 
-void Victims_living()
+bool Victims_living()
 {
     bool leave = false;
     int x = 0, y = 0;
@@ -411,16 +423,16 @@ void Victims_living()
 
                     if((x>27)&&(x<27+23)&&(y>150)&&(y<150+180))
                     {
-                        Victims_kitchen();
+                        leave = Victims_kitchen();
                     }
                 }
             }
         }
     }
-
+    return leave;
 }
 
-void Victims_bedroom()
+bool Victims_bedroom()
 {
     bool quit = false;
     int x = 0, y = 0;
@@ -451,10 +463,10 @@ void Victims_bedroom()
             }
         }
     }
-
+    return quit;
 }
 
-void Victims_house()
+bool Victims_house()
 {
     bool quit = false;
     int x = 0, y = 0;
@@ -476,18 +488,19 @@ void Victims_house()
 
                         if((x>240)&&(x<240+160)&&(y>230)&&(y<230+150))
                         {
-                            Victims_living();
+                            quit = Victims_living();
 
                         }
                         if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
                         {
                             quit = true;
-                            office();
+                            map_home();
                         }
                 }
             }
         }
     }
+    return quit;
 }
 
 void Salon()
@@ -515,13 +528,13 @@ void office()
                    y = event.button.y;
                         if((x>100)&&(x<100+50)&&(y>150)&&(y<150+50))
                         {
-                            deceased();
+                            quit = deceased();
                         }
 
                         if((x>360)&&(x<360+50)&&(y>150)&&(y<150+50))
                         {
                             SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
-                            map_home();
+                            quit = map_home();
                         }
 
                         if((x>400)&&(x<400+40)&&(y>400)&&(y<400+38))
