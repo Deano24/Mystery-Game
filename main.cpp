@@ -8,13 +8,14 @@
 #include "load.h"
 #include "String_SDL.h"
 #include "points.h"
+#include "Time_show.h"
 
 #include "Office_Class.h"
 #include "apply_surface.h"
 #include "deceased_stuff.h"
 #include "Victim_house.h"
 
-
+#include <sqlite3.h>
 
 
 using namespace std;
@@ -25,7 +26,7 @@ void welcome_screen(void);
 void point_allocation(void);
 
 //MAP
-bool map_home(void);
+bool map_home(int);
 
 //THE DECASED MYSTERY INFORMATION
 bool deceased(void);
@@ -63,6 +64,7 @@ SDL_Surface *v_bedroom = NULL;
 SDL_Surface *v_living = NULL;
 SDL_Surface *v_entrance = NULL;
 SDL_Surface *v_kitchen = NULL;
+SDL_Surface *time_showing = NULL;
 
 
 
@@ -79,6 +81,9 @@ SDL_Color textColor = { 255,255,255 };
 SDL_Color textColors = { 0xFF,0xFF,0xFF };
 SDL_Color textColor_r = {255,000,000};
 SDL_Color textColor_b = {000,000,000};
+SDL_Color textColor_blue = {000, 000, 139};
+
+
 
     //to set screen back to black SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
 
@@ -260,10 +265,12 @@ bool deceased()
     int x = 0, y = 0;
 
     apply_surface(0,0,office_back, screen);
+    Time_show show_time;
+    game_time.time_mf+=3;
     name_message = TTF_RenderText_Solid(comic,"Victim: Mrs. Mary-Ann Smith",textColor_b);
-    apply_surface(10,10,name_message,screen);
+    apply_surface(10,20,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Cause of death: Hacked to death",textColor_b);
-    apply_surface(10,40,name_message,screen);
+    apply_surface(10,45,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Weapon: Machete",textColor_b);
     apply_surface(10,80,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Brief summary: Mrs. Smith age 28 lived with her husban Mr. Smith ",textColor_b);
@@ -302,11 +309,13 @@ bool deceased()
     return quit;
 }
 
-bool map_home()
+bool map_home(int location)
 {
     bool quit = false;
     int x = 0, y = 0;
+
     apply_surface(0,0,city_street,screen);
+    Time_show show_time;
     apply_surface(400,400,office_b,screen);
     name_message = TTF_RenderText_Solid(comic,"Victim's House",textColor);
     apply_surface(50,20,name_message,screen);
@@ -329,15 +338,40 @@ bool map_home()
 
                         if((x>25)&&(x<25+20)&&(y>20)&&(y<20+18))
                            {
+                               if(location==2)
+                               {
+
+                               }
+
+                               else
+                               {
+                                   game_time.time_mf+=3;
+                               }
                                quit = Victims_house();
                            }
                         if((x>75)&&(x<75+20)&&(y>80)&&(y<80+18))
                            {
+                               if(location==3)
+                               {
+
+                               }
+                               else
+                               {
+                                   game_time.time_mf+=3;
+                               }
                                 Salon();
                            }
 
                         if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
                         {
+                            if(location==1)
+                            {
+
+                            }
+                            else
+                            {
+                            game_time.time_mf+=3;
+                            }
                             quit = true;
                             office();
                         }
@@ -356,6 +390,7 @@ bool Victims_kitchen()
     Victim_house show_house;
 
     show_house.show_kitchen();
+    Time_show show_time;
     name_message = TTF_RenderText_Solid(comic,"Living Room",textColor);
     apply_surface(400,400,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Bedroom",textColor);
@@ -398,6 +433,7 @@ bool Victims_living()
     Victim_house show_house;
 
     show_house.show_living();
+    Time_show show_time;
     name_message = TTF_RenderText_Solid(comic,"Entrance",textColor);
     apply_surface(400,400,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
@@ -442,6 +478,7 @@ bool Victims_bedroom()
     name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
     apply_surface(400,400,name_message,screen);
     SDL_Flip(screen);
+    Time_show show_time;
 
     while(quit==false)
     {
@@ -473,7 +510,9 @@ bool Victims_house()
 
     apply_surface(0,0,v_entrance,screen);
     apply_surface(400,400,office_b,screen);
+    apply_surface(100,400,globe,screen);
     SDL_Flip(screen);
+    Time_show show_time;
 
     while(quit == false)
     {
@@ -491,10 +530,16 @@ bool Victims_house()
                             quit = Victims_living();
 
                         }
+                        if((x>100)&&(x<100+50)&&(y>400)&&(y<400+50))
+                        {
+                            quit = true;
+                            map_home(2);
+                        }
                         if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
                         {
                             quit = true;
-                            map_home();
+                            game_time.time_mf+=3;
+                            office();
                         }
                 }
             }
@@ -514,6 +559,7 @@ void office()
     int x = 0, y = 0;
 
     Office_Class office_image;
+    Time_show show_time;
 
     while(quit==false)
     {
@@ -534,7 +580,7 @@ void office()
                         if((x>360)&&(x<360+50)&&(y>150)&&(y<150+50))
                         {
                             SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
-                            quit = map_home();
+                            quit = map_home(1);
                         }
 
                         if((x>400)&&(x<400+40)&&(y>400)&&(y<400+38))
