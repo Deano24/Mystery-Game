@@ -1,23 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+	<File name="Husband_house.cpp" open="1" top="1" tabpos="3">
+		<Cursor position="887" topLine="25" />
+	</File>
+	<File name="Husband_house.h" open="1" top="0" tabpos="2">
+		<Cursor position="147" topLine="0" />
+	</File>
 	<File name="Office_Class.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="149" topLine="0" />
+		<Cursor position="0" topLine="14" />
 	</File>
 	<File name="Office_Class.h" open="0" top="0" tabpos="0">
 		<Cursor position="195" topLine="0" />
 	</File>
+	<File name="Salon_questioning.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="214" topLine="0" />
+	</File>
+	<File name="Salon_questioning.h" open="0" top="0" tabpos="0">
+		<Cursor position="158" topLine="0" />
+	</File>
 	<File name="String_SDL.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="792" topLine="70" />
+		<Cursor position="792" topLine="89" />
 	</File>
 	<File name="String_SDL.h" open="0" top="0" tabpos="0">
-		<Cursor position="369" topLine="14" />
+		<Cursor position="369" topLine="19" />
+	</File>
+	<File name="Time_show.cpp" open="0" top="0" tabpos="3">
+		<Cursor position="4147" topLine="150" />
+	</File>
+	<File name="Time_show.h" open="0" top="0" tabpos="2">
+		<Cursor position="368" topLine="3" />
 	</File>
 	<File name="Victim_house.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="755" topLine="0" />
+		<Cursor position="0" topLine="6" />
 	</File>
-	<File name="Victim_house.h" open="0" top="0" tabpos="0">
-		<Cursor position="251" topLine="0" />
+	<File name="Victim_house.h" open="0" top="0" tabpos="4">
+		<Cursor position="162" topLine="0" />
+	</File>
+	<File name="data.h" open="0" top="0" tabpos="2">
+		<Cursor position="129" topLine="0" />
 	</File>
 	<File name="deceased_stuff.cpp" open="0" top="0" tabpos="0">
 		<Cursor position="189" topLine="0" />
@@ -25,19 +46,19 @@
 	<File name="deceased_stuff.h" open="0" top="0" tabpos="0">
 		<Cursor position="24" topLine="0" />
 	</File>
-	<File name="load.cpp" open="0" top="0" tabpos="4">
-		<Cursor position="0" topLine="0" />
+	<File name="load.cpp" open="0" top="0" tabpos="2">
+		<Cursor position="2807" topLine="89" />
 	</File>
-	<File name="load.h" open="0" top="0" tabpos="5">
-		<Cursor position="838" topLine="23" />
+	<File name="load.h" open="0" top="0" tabpos="3">
+		<Cursor position="1046" topLine="32" />
 	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="1225" topLine="51" />
+	<File name="main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="25254" topLine="162" />
 	</File>
 	<File name="points.cpp" open="0" top="0" tabpos="2">
-		<Cursor position="784" topLine="11" />
+		<Cursor position="208" topLine="127" />
 	</File>
 	<File name="points.h" open="0" top="0" tabpos="0">
-		<Cursor position="678" topLine="5" />
+		<Cursor position="114" topLine="31" />
 	</File>
 </CodeBlocks_layout_file>

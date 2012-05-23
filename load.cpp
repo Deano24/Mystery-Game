@@ -91,6 +91,12 @@ bool load::load_files()
     v_bedroom = load_image ("victim_bedroom.jpg");
     v_living = load_image ("victim_living room.jpg");
     v_entrance = load_image("victim_entrance.jpg");
+    hair_salon = load_image("hair_salon.jpg");
+    packed_suitcase = load_image("Packed_suitcases.jpg");
+    small_note = load_image("small_note.jpg");
+    select_button = load_image("select.gif");
+    husband_house = load_image("husband_house.jpg");
+    husband_living = load_image("husband_living.jpg");
 
 
     //Open the font

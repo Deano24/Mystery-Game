@@ -1,27 +1,29 @@
 # depslib dependency file v1.0
-1337408662 source:c:\users\carol\desktop\sdl_mystery\main.cpp
-	<iostream>
+1337743374 source:c:\users\carol\desktop\sdl_mystery\main.cpp
 	<sstream>
 	<windows.h>
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
+	<sqlite3.h>
 	"load.h"
 	"String_SDL.h"
 	"points.h"
 	"Time_show.h"
+	"data.h"
 	"Office_Class.h"
 	"apply_surface.h"
 	"deceased_stuff.h"
+	"Salon_questioning.h"
 	"Victim_house.h"
-	<sqlite3.h>
+	"Husband_house.h"
 
-1337376326 c:\users\carol\desktop\sdl_mystery\load.h
+1337741939 c:\users\carol\desktop\sdl_mystery\load.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
 
-1337376339 source:c:\users\carol\desktop\sdl_mystery\load.cpp
+1337743351 source:c:\users\carol\desktop\sdl_mystery\load.cpp
 	"load.h"
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
@@ -104,12 +106,12 @@
 	"SDL/SDL_image.h"
 	"load.h"
 
-1337408750 c:\users\carol\desktop\sdl_mystery\time_show.h
+1337410339 c:\users\carol\desktop\sdl_mystery\time_show.h
 	"SDL/SDL.h"
 	"SDL/SDL_ttf.h"
 	"SDL/SDL_image.h"
 
-1337408750 source:c:\users\carol\desktop\sdl_mystery\time_show.cpp
+1337410339 source:c:\users\carol\desktop\sdl_mystery\time_show.cpp
 	"Time_show.h"
 	<sstream>
 	"SDL/SDL.h"
@@ -117,4 +119,37 @@
 	"SDL/SDL_image.h"
 	"load.h"
 	<string.h>
+
+1337484415 c:\users\carol\desktop\sdl_mystery\data.h
+	<sstream>
+
+1337726783 source:c:\users\carol\desktop\sdl_mystery\salon_questioning.cpp
+	"Salon_questioning.h"
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<sqlite3.h>
+	"Time_show.h"
+	"load.h"
+	"text_colors.h"
+
+1337726537 c:\users\carol\desktop\sdl_mystery\salon_questioning.h
+
+1337544084 c:\users\carol\desktop\sdl_mystery\text_colors.h
+
+1337743489 source:c:\users\carol\desktop\sdl_mystery\husband_house.cpp
+	"Husband_house.h"
+	<sstream>
+	<windows.h>
+	"SDL/SDL.h"
+	"SDL/SDL_ttf.h"
+	"SDL/SDL_image.h"
+	<sqlite3.h>
+	"load.h"
+	"String_SDL.h"
+	"points.h"
+	"Time_show.h"
+	"data.h"
+
+1337743479 c:\users\carol\desktop\sdl_mystery\husband_house.h
 

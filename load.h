@@ -36,6 +36,13 @@ extern SDL_Surface *v_bedroom;
 extern SDL_Surface *v_living;
 extern SDL_Surface *v_entrance;
 extern SDL_Surface *v_kitchen;
+extern SDL_Surface *hair_salon;
+extern SDL_Surface *packed_suitcase;
+extern SDL_Surface *small_note;
+extern SDL_Surface *select_button;
+extern SDL_Surface *husband_house;
+extern SDL_Surface *husband_living;
+
 
 
 //The event structure

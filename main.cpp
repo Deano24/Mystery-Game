@@ -1,23 +1,32 @@
-#include <iostream>
+//All header files used
+
+//all compiler header files
 #include <sstream>
 #include <windows.h>
 #include "SDL/SDL.h"
 #include "SDL/SDL_ttf.h"
 #include "SDL/SDL_image.h"
+#include <sqlite3.h>
 
+//header files that deal with the program - these are created
 #include "load.h"
 #include "String_SDL.h"
 #include "points.h"
 #include "Time_show.h"
+#include "data.h"
 
+//header files that deal with the mystery - these are created
 #include "Office_Class.h"
 #include "apply_surface.h"
 #include "deceased_stuff.h"
+#include "Salon_questioning.h"
+//for the victim house
 #include "Victim_house.h"
 
-#include <sqlite3.h>
+//for the husband's house
+#include "Husband_house.h"
 
-
+//allows for the use of the stream
 using namespace std;
 
 //START OFF
@@ -32,7 +41,7 @@ bool map_home(int);
 bool deceased(void);
 
 //SALON FOR DECEASED MYSTERY
-void Salon(void);
+bool Salon(void);
 
 //ALL ASPECTS OF VICTIMS HOUSE
 bool Victims_house(void);
@@ -40,7 +49,11 @@ bool Victims_kitchen(void);
 bool Victims_living(void);
 bool Victims_bedroom(void);
 
+//ALL ASPECT OF HUSBANDS HOUSE
+bool Husbands_house(void);
 
+
+//List of all Surfaces
 SDL_Surface *background = NULL;
 SDL_Surface *message = NULL;
 SDL_Surface *screen = NULL;
@@ -65,29 +78,29 @@ SDL_Surface *v_living = NULL;
 SDL_Surface *v_entrance = NULL;
 SDL_Surface *v_kitchen = NULL;
 SDL_Surface *time_showing = NULL;
+SDL_Surface *hair_salon = NULL;
+SDL_Surface *packed_suitcase = NULL;
+SDL_Surface *small_note = NULL;
+SDL_Surface *select_button = NULL;
+SDL_Surface *husband_house = NULL;
+SDL_Surface *husband_living = NULL;
 
-
-
+//event handlers
 SDL_Event event;
 SDL_Event event_string;
 
+//creates an array to store all the clues
+clues list_clues [30];
+
+//List of all fonts
 TTF_Font *font = NULL;
 TTF_Font *sketch = NULL;
 TTF_Font *sketch_2 = NULL;
 TTF_Font *juice_b = NULL;
 TTF_Font *comic = NULL;
 
-SDL_Color textColor = { 255,255,255 };
-SDL_Color textColors = { 0xFF,0xFF,0xFF };
-SDL_Color textColor_r = {255,000,000};
-SDL_Color textColor_b = {000,000,000};
-SDL_Color textColor_blue = {000, 000, 139};
 
-
-
-    //to set screen back to black SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
-
-
+//function designed to apply the surfaxes to the screen
 void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,SDL_Rect* clip = NULL)
 {
     //Holds offsets
@@ -102,29 +115,7 @@ void apply_surface( int x, int y, SDL_Surface* source, SDL_Surface* destination,
     SDL_BlitSurface( source, clip, destination, &offset );
 }
 
-bool button_event()
-{
-    int x=0, y=0;
-    bool quit;
-
-    //If a mouse button was pressed
-        if(event.button.button==SDL_BUTTON_LEFT)
-        {
-            //Get the mouse offsets
-            x = event.button.x;
-            y = event.button.y;
-
-            //If the mouse is over the button
-           if( ( x > 0) && ( x < 100 + 223 ) && ( y > 0 ) && ( y < 100 + 31 ) )
-            {
-                    //Render the text
-                    quit=true;
-
-            }
-        }
-        return quit;
-}
-
+//Welcome Screen
 void welcome_screen()
 {
     bool quit = false;
@@ -149,6 +140,10 @@ void welcome_screen()
                                     quit = true;
                                     }
                         }
+                        if(event.type==SDL_QUIT)
+                        {
+                            quit=true;
+                        }
                     }
         //Show the name on the screen
         apply_surface( 20, 0, background, screen );
@@ -161,6 +156,7 @@ void welcome_screen()
     }
 }
 
+//Function to allow user to allocate points
 void point_allocation()
 {
     bool quit = false;
@@ -248,6 +244,10 @@ void point_allocation()
 
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     SDL_FreeSurface(welcome_message);
     strm2<<skill_set.bande+skill_set.interrogation+skill_set.intuition;
@@ -259,6 +259,7 @@ void point_allocation()
     }
 }
 
+//function to show user information on deceased case
 bool deceased()
 {
     bool quit = false;
@@ -266,7 +267,6 @@ bool deceased()
 
     apply_surface(0,0,office_back, screen);
     Time_show show_time;
-    game_time.time_mf+=3;
     name_message = TTF_RenderText_Solid(comic,"Victim: Mrs. Mary-Ann Smith",textColor_b);
     apply_surface(10,20,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Cause of death: Hacked to death",textColor_b);
@@ -304,11 +304,16 @@ bool deceased()
                         }
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     }
     return quit;
 }
 
+//shows the map
 bool map_home(int location)
 {
     bool quit = false;
@@ -323,6 +328,15 @@ bool map_home(int location)
     apply_surface(100,80,name_message,screen);
     apply_surface(25,20,star,screen);
     apply_surface(75,80,star,screen);
+
+    if(husband==true)
+    {
+        name_message = TTF_RenderText_Solid(comic,"Husband's House",textColor);
+        apply_surface(200,40,name_message,screen);
+        apply_surface(175,40,star,screen);
+    }
+
+
     SDL_Flip(screen);
 
     while(quit==false)
@@ -349,6 +363,21 @@ bool map_home(int location)
                                }
                                quit = Victims_house();
                            }
+
+                        if((x>175)&&(x<175+20)&&(y>40)&&(y<40+18))
+                           {
+                               if(location==4)
+                               {
+
+                               }
+
+                               else
+                               {
+                                   game_time.time_mf+=3;
+                               }
+                               quit = Husbands_house();
+                           }
+
                         if((x>75)&&(x<75+20)&&(y>80)&&(y<80+18))
                            {
                                if(location==3)
@@ -359,7 +388,7 @@ bool map_home(int location)
                                {
                                    game_time.time_mf+=3;
                                }
-                                Salon();
+                                quit = Salon();
                            }
 
                         if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
@@ -378,11 +407,17 @@ bool map_home(int location)
 
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     }
     return quit;
 }
 
+
+//shows victim kitchen
 bool Victims_kitchen()
 {
     bool exit = false;
@@ -414,6 +449,22 @@ bool Victims_kitchen()
                                 Victims_living();
                             }
 
+                            if((x>50)&&(x<300+300)&&(y>50)&&(y<100+300))
+                            {
+                                name_message = TTF_RenderText_Solid(comic,"Look like I found the crime scene",textColor);
+                                apply_surface(200,200,name_message,screen);
+                                SDL_Flip(screen);
+
+                                SDL_Delay(3000);
+                                show_house.show_kitchen();
+                                Time_show show_time;
+                                name_message = TTF_RenderText_Solid(comic,"Living Room",textColor);
+                                apply_surface(400,400,name_message,screen);
+                                name_message = TTF_RenderText_Solid(comic,"Bedroom",textColor);
+                                apply_surface(300,0,name_message,screen);
+                                SDL_Flip(screen);
+                            }
+
                         if((x>300)&&(x<300+70)&&(y>0)&&(y<0+30))
                             {
                                 exit = Victims_bedroom();
@@ -421,11 +472,16 @@ bool Victims_kitchen()
 
                     }
             }
+            if(event.type==SDL_QUIT)
+           {
+               exit=true;
+           }
         }
     }
     return exit;
 }
 
+//shows victim living room
 bool Victims_living()
 {
     bool leave = false;
@@ -438,6 +494,7 @@ bool Victims_living()
     apply_surface(400,400,name_message,screen);
     name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
     apply_surface(20,150,name_message,screen);
+    apply_surface(330,180,small_note,screen);
     SDL_Flip(screen);
 
     while(leave==false)
@@ -461,13 +518,41 @@ bool Victims_living()
                     {
                         leave = Victims_kitchen();
                     }
+
+                    if((x>330)&&(x<330+36)&&(y>180)&&(y<180+36))
+                    {
+                        name_message = TTF_RenderText_Solid(comic,"I love you too much and if I cant have you no one can",textColor_b);
+                        apply_surface(100,200,name_message,screen);
+                        name_message = TTF_RenderText_Solid(comic,"Sincerely Allimore",textColor_b);
+                        apply_surface(100,240,name_message,screen);
+                        SDL_Flip(screen);
+
+                        list_clues[0].information_clues<<"I love you too much and if I cant have you no one can";
+                        list_clues[0].person_name_first<<"Jacob";
+                        list_clues[0].person_name_first<<"Allimore";
+                        list_clues[0].location<<"Victim's residence - Living room";
+                        SDL_Delay(5000);
+                        show_house.show_living();
+                        Time_show show_time;
+                        name_message = TTF_RenderText_Solid(comic,"Entrance",textColor);
+                        apply_surface(400,400,name_message,screen);
+                        name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
+                        apply_surface(20,150,name_message,screen);
+                        apply_surface(330,180,small_note,screen);
+                        SDL_Flip(screen);
+                    }
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               leave=true;
+           }
         }
     }
     return leave;
 }
 
+//shows victim bedroom
 bool Victims_bedroom()
 {
     bool quit = false;
@@ -477,6 +562,7 @@ bool Victims_bedroom()
     show_house.show_bedroom();
     name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
     apply_surface(400,400,name_message,screen);
+    apply_surface(550,350,packed_suitcase,screen);
     SDL_Flip(screen);
     Time_show show_time;
 
@@ -496,13 +582,38 @@ bool Victims_bedroom()
                         quit=true;
                         Victims_kitchen();
                     }
+
+                    if((x>550)&&(x<550+100)&&(y>350)&&(y<350+100))
+                    {
+                        name_message = TTF_RenderText_Solid(comic,"Seems someone wanted to leave in a hurry",textColor_b);
+                        apply_surface(200,200,name_message,screen);
+                        SDL_Flip(screen);
+
+                        list_clues[1].information_clues<<"Packed Suitcases";
+                        list_clues[1].person_name_first<<"unknown";
+                        list_clues[1].person_name_last<<"unknown";
+                        list_clues[1].location<<"Victim's residence - Bedroom";
+
+                        SDL_Delay(3000);
+                        show_house.show_bedroom();
+                        name_message = TTF_RenderText_Solid(comic,"Kitchen",textColor);
+                        apply_surface(400,400,name_message,screen);
+                        apply_surface(550,350,packed_suitcase,screen);
+                        SDL_Flip(screen);
+                        Time_show show_time;
+                    }
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     }
     return quit;
 }
 
+//shows victim entrance
 bool Victims_house()
 {
     bool quit = false;
@@ -543,16 +654,131 @@ bool Victims_house()
                         }
                 }
             }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     }
     return quit;
 }
 
-void Salon()
+//shows salon
+bool Salon()
 {
+    bool quit = false;
+    int x = 0, y = 0;
+
+
+    apply_surface(0,0,hair_salon,screen);
+    apply_surface(400,400,office_b,screen);
+    apply_surface(100,400,globe,screen);
+    name_message = TTF_RenderText_Solid(comic,"Talk to Owner",textColor);
+    apply_surface(400,100,name_message,screen);
+    SDL_Flip(screen);
+
+    Time_show show_time;
+
+    while(quit == false)
+    {
+        while(SDL_PollEvent(&event))
+        {
+            if(event.type==SDL_MOUSEBUTTONDOWN)
+            {
+                if(event.button.button==SDL_BUTTON_LEFT)
+                {
+                    x = event.button.x;
+                    y = event.button.y;
+
+                        if((x>400)&&(x<400+100)&&(y>100)&&(y<100+20))
+                        {
+                            Salon_questioning question;
+                            apply_surface(0,0,hair_salon,screen);
+                            apply_surface(400,400,office_b,screen);
+                            apply_surface(100,400,globe,screen);
+                            name_message = TTF_RenderText_Solid(comic,"Talk to Owner",textColor);
+                            apply_surface(400,100,name_message,screen);
+                            SDL_Flip(screen);
+                            Time_show show_time;
+                        }
+
+                        if((x>100)&&(x<100+50)&&(y>400)&&(y<400+50))
+                        {
+                            quit = true;
+                            map_home(3);
+                        }
+                        if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
+                        {
+                            quit = true;
+                            game_time.time_mf+=3;
+                            office();
+                        }
+                }
+            }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
+        }
+    }
+    return quit;
 
 }
 
+//husbands house entrance
+bool Husbands_house()
+{
+    bool quit;
+    int x = 0, y = 0;
+    Husband_house enter;
+
+    apply_surface(0,0,husband_house,screen);
+    Time_show show_time;
+    apply_surface(400,400,office_b,screen);
+    apply_surface(100,400,globe,screen);
+    SDL_Flip(screen);
+
+    while(quit == false)
+    {
+        while(SDL_PollEvent(&event))
+        {
+            if(event.type==SDL_MOUSEBUTTONDOWN)
+            {
+                if(event.button.button==SDL_BUTTON_LEFT)
+                {
+                    x = event.button.x;
+                    y = event.button.y;
+
+                        if((x>100)&&(x<100+50)&&(y>400)&&(y<400+50))
+                        {
+                            quit = true;
+                            map_home(4);
+                        }
+
+                        if((x>232)&&(x<232+43)&&(y>248)&&(y<248+162))
+                        {
+                            quit = true;
+                            enter.Husband_houses();
+                        }
+
+                        if((x>400)&&(x<400+160)&&(y>400)&&(y<400+45))
+                        {
+                            quit = true;
+                            game_time.time_mf+=3;
+                            office();
+                        }
+                }
+            }
+            if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
+        }
+    }
+    return quit;
+}
+
+//shows the users office
 void office()
 {
     bool quit = false;
@@ -590,11 +816,16 @@ void office()
                }
 
            }
+           if(event.type==SDL_QUIT)
+           {
+               quit=true;
+           }
         }
     }
 
 }
 
+//main function
 int main( int argc, char* args[] )
 {
     load start;
@@ -620,7 +851,9 @@ int main( int argc, char* args[] )
     //SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
     //point_allocation();
     //SDL_FillRect( SDL_GetVideoSurface(), NULL, 0 );
-    office();
+    //office();
+
+    Husbands_house();
 
     //Free surfaces and font then quit SDL_ttf and SDL
     start.clean_up();

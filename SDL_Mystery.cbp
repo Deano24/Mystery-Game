@@ -32,12 +32,19 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Husband_house.cpp" />
+		<Unit filename="Husband_house.h" />
 		<Unit filename="Office_Class.cpp" />
 		<Unit filename="Office_Class.h" />
+		<Unit filename="Salon_questioning.cpp" />
+		<Unit filename="Salon_questioning.h" />
 		<Unit filename="String_SDL.cpp" />
 		<Unit filename="String_SDL.h" />
+		<Unit filename="Time_show.cpp" />
+		<Unit filename="Time_show.h" />
 		<Unit filename="Victim_house.cpp" />
 		<Unit filename="Victim_house.h" />
+		<Unit filename="data.h" />
 		<Unit filename="deceased_stuff.cpp" />
 		<Unit filename="deceased_stuff.h" />
 		<Unit filename="load.cpp" />
@@ -45,6 +52,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="points.cpp" />
 		<Unit filename="points.h" />
+		<Unit filename="text_colors.h" />
 		<Extensions>
 			<code_completion />
 			<debugger />
